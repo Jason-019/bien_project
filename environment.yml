@@ -1,0 +1,23 @@
+# BWV861 音乐形式化分析系统 — Conda 环境配置
+# 安装: conda env create -f environment.yml
+# 激活: conda activate bien_music_env
+
+name: bien_music_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy>=1.24
+  - scipy>=1.10
+  - matplotlib>=3.7
+  - pandas>=2.0
+  - jupyter>=1.0
+  - ipykernel>=6.0
+  - pip
+  - pip:
+      - music21>=10.0
+      - editdistance>=0.8
+      - dtw-python>=1.7
+      - networkx>=3.0
+      - plotly>=6.0

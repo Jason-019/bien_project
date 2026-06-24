@@ -1,0 +1,27 @@
+# BWV861 音乐形式化分析系统 — Python 依赖
+# Python >= 3.11
+
+# === 音乐解析 ===
+music21>=10.0          # MusicXML 解析, 音高/时值/力度/延音线提取
+
+# === 核心数值计算 ===
+numpy>=1.24            # 数组运算, 线性插值, 统计
+scipy>=1.10            # dtw-python 底层依赖, 稀疏矩阵
+
+# === 序列距离 ===
+editdistance>=0.8      # 音程编辑距离 d_I (C 实现, 支持 int list)
+dtw-python>=1.7        # 节奏/起始时间动态时间规整距离 d_R, d_T
+
+# === 图与网络 ===
+networkx>=3.0          # 主题网络 G_m 构建, 度分布, 连通分量
+
+# === 可视化 ===
+plotly>=6.0            # 交互式图表 (11 张图: 网络/热力图/时间线/钢琴卷帘等)
+matplotlib>=3.7        # music21 乐谱渲染, 回退绘图
+
+# === 数据分析 ===
+pandas>=2.0            # Notebook 中的 DataFrame 统计表
+
+# === Notebook 运行环境 ===
+jupyter>=1.0
+ipykernel>=6.0
