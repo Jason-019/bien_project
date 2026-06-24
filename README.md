@@ -10,6 +10,11 @@
 bien_project/
 ├── formalization_v1.md              # 数学形式化定义文档（理论规范）
 ├── BWV861_Prelude_G_minor.mxl       # 输入：巴赫 BWV861 的 MusicXML 乐谱
+├── README.md                        # 项目文档（本文件）
+├── INSTALL.md                       # 零基础安装指南（Conda / pip / .venv）
+├── PROJECT_MAP.md                   # 项目思维导图（模块关系、数据流、公式映射）
+├── requirements.txt                 # pip 依赖清单
+├── environment.yml                  # Conda 环境一键配置
 ├── music_analysis/                  # Python 共享包 (10 个模块)
 │   ├── __init__.py                  # 包入口
 │   ├── config.py                    # 全局超参数与常量
@@ -21,7 +26,7 @@ bien_project/
 │   ├── distance.py                  # 商空间距离 / 主题相似度
 │   ├── network.py                   # 主题网络 G_m
 │   ├── dynamics.py                  # 记忆激活 / 断裂韧性 / 动态指标
-│   └── viz.py                       # 可视化封装 (plotly)
+│   └── viz.py                       # 可视化封装 (11 个 plotly 函数)
 ├── notebooks/                       # 9 个 Jupyter Notebook（流水线）
 │   ├── 00_environment_setup.ipynb   # 环境验证
 │   ├── 01_event_extraction.ipynb    # 离散事件提取
@@ -31,7 +36,7 @@ bien_project/
 │   ├── 05_theme_analysis.ipynb      # 主题分析 + 压缩增益过滤
 │   ├── 06_similarity_network.ipynb  # 距离 / 相似度 / 网络
 │   ├── 07_dynamic_metrics.ipynb     # 动态断裂韧性指标
-│   └── 08_final_report.ipynb        # 最终报告（图表+表格）
+│   └── 08_final_report.ipynb        # 最终报告（11 图表 + 3 表格 + 诊断）
 └── data/                            # 中间数据 (pickle)
 ```
 
@@ -308,7 +313,8 @@ bien_project/
 
 ## 运行方式
 
-> 📖 详细安装步骤见 **[INSTALL.md](INSTALL.md)**（含零基础 Python/Jupyter 安装指南）。
+> 📖 详细安装步骤见 **[INSTALL.md](INSTALL.md)**（含零基础 Python/Jupyter 安装指南，支持 Conda / pip / .venv 三种方式）。  
+> 🗺️ 项目架构速览见 **[PROJECT_MAP.md](PROJECT_MAP.md)**（Mermaid 思维导图 + 模块速查 + 数据流 + 公式映射）。
 
 **快速启动（已有 conda 环境）:**
 
@@ -322,10 +328,14 @@ jupyter notebook notebooks/
 **首次安装:**
 
 ```bash
-# 方式 A: conda 一键安装（推荐）
+# 方式 A: conda 一键安装
 conda env create -f environment.yml
 
-# 方式 B: pip 安装
+# 方式 B: pip + .venv（无需 Anaconda）
+python -m venv .venv
+# 激活后: pip install -r requirements.txt
+
+# 方式 C: 直接 pip 安装
 pip install -r requirements.txt
 ```
 
