@@ -1437,7 +1437,7 @@ $$
 
 其物理意义是：宏观裂纹推进消耗的不只是裂纹面上单个键能$U$，而是整条链被拉伸到断裂所积累的总能量，链密度 $\nu$ 与链长 $N$ 共同放大这一效应。
 
-在主题网络 $G_m$ 中，类比如下：
+在主题网络 $G_m$ 中，可以构造如下的结构同态关系：
 
 - **交联点** $v \in V_p$ $\leftrightarrow$ **严格主题类型** $T_i \in V_m$
 - **链段** $e \in E_p$ $\leftrightarrow$ **主题关系** $e_{ij} \in E_m$
@@ -1505,7 +1505,7 @@ a_{\mathfrak{o}_q}(t)
 =
 \begin{cases}
 1, & t_q^- \leq t \leq t_q^+ \\[4pt]
-2^{\!-\dfrac{t - t_q^+}{\tau_\mathfrak{D}}} = 2^{\!-\dfrac{\Delta t}{\tau_\mathfrak{D}}} , & t > t_q^+ \\[4pt]
+2^{\!-\dfrac{t - t_q^+}{\tau_\mathfrak{D}}} = 2^{\!-\dfrac{\delta t}{\tau_\mathfrak{D}}} , & t > t_q^+ \\[4pt]
 0, & t < t_q^-
 \end{cases}
 $$
@@ -1526,7 +1526,7 @@ $$
 
 从上面的记忆激活衰减函数中我们抽取出记忆衰减核（Memory Decay Kernel）
 $$
-K_m(\Delta t) =2^{\!-\dfrac{\Delta t}{\tau_\mathfrak{D}}}, \qquad \Delta t \geq 0
+K_m(\Delta t) =2^{\!-\dfrac{\delta t}{\tau_\mathfrak{D}}}, \qquad \delta t \geq 0
 $$
 
 ### 动态断裂势能 $B_{\text{dyn}}$
@@ -1586,7 +1586,7 @@ $$
 
 定义该历史终止后的实际接续强度：  
 $$
-e_q = \max_{o_r \in \Delta_q^+} \left[ 2 \, \frac{t_r - t_q^+}{\tau_{\mathfrak{D}}} \, S_m(T_i, T_r) \right].
+e_q = \max_{o_r \in \Delta_q^+} \left[ 2^{-\frac{t_r - t_q^+}{\tau_{\mathfrak{D}}}}  \, S_m(T_i, T_r) \right].
 $$
 
 即：后面越快出现、越相似，接续强度越高。取最大值是因为听觉上一个强接续就足以形成“这个主题通常会被接上”的经验。
@@ -1649,7 +1649,7 @@ $$
 $$
 r_{i \to k}(t_c, t_j^-)
 = K_m(t_j^- - t_c) \cdot S_m(T_i, T_k)
-= 2^{\!-\dfrac{\Delta t}{\tau_\mathfrak{D}}} S_m(T_i, T_k)
+= 2^{\!-\dfrac{\delta t}{\tau_\mathfrak{D}}} S_m(T_i, T_k)
 $$
 
 对$\mathfrak{O}^+(t_c, \Delta t)$ 内所有后续主题出现求和，得总残余相干
@@ -1657,7 +1657,7 @@ $$
 $$
 C_{\mathrm{res}}^{\mathrm{dyn}}(T_i, t_c;\, \Delta t, \tau_m)
 = \sum_{\mathfrak{o}_j \in \mathfrak{O}^+(t_c,\,\Delta t)}
-2^{\!-\dfrac{\Delta t}{\tau_\mathfrak{D}}}
+2^{\!-\dfrac{\delta t}{\tau_\mathfrak{D}}}
 S_m\!\left(T_i,\, T(\mathfrak{o}_j)\right)
 $$
 
@@ -1726,7 +1726,6 @@ $$
 
 以下所有因子都在 $[0,1]$ 内：  
 $$
-B_{\mathrm{dyn}} \in [0,1], \quad 
 E_{\mathrm{cont}} \in [0,1], \quad 
 U_{\mathrm{cad}} \in [0,1], \quad 
 \widetilde{C}_{\mathrm{res}}^{\mathrm{dyn}} \in [0,1].
