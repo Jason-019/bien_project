@@ -154,7 +154,7 @@ bien_project/
 | `onset_dtw_distance(T̂_a, T̂_b)`     | $d_T(\widehat{T}_i, \widehat{T}_j)$ — DTW symmetric2                          |
 | `feature_distance(φ_a, φ_b)`         | $d_\Phi(\varphi_i, \varphi_j) = w_I d_I + w_R d_R + w_T d_T$                   |
 | `quotient_distance(κ_i, κ_j)`        | $d_\mathbb{Q}(T_i, T_j) = \min_{g \in V_4} d_\Phi(\kappa_i, g \cdot \kappa_j)$ |
-| `compute_scale_parameter(dist_matrix)` | $\ell = \operatorname{median}\{d_\mathbb{Q}(T_i, T_j) > 0\}$                   |
+| `compute_scale_parameter(dist_matrix)` | $\ell = \text{median}\{d_\mathbb{Q}(T_i, T_j) > 0\}$                   |
 | `theme_similarity(dist_matrix, ℓ)`    | $S_m(T_i, T_j) = \exp(-d_\mathbb{Q}(T_i, T_j) / \ell)$                         |
 | `build_distance_matrix(strict_types)`  | 批量计算 K×K 距离矩阵                                                           |
 
@@ -268,7 +268,7 @@ bien_project/
 | ---------- | -------------------------------------------------------------------------------- | ----------------------------------------- |
 | 特征距离   | $d_\Phi(\varphi_i, \varphi_j) = w_I d_I + w_R d_R + w_T d_T$                   | `distance.py:feature_distance()`        |
 | 商空间距离 | $d_\mathbb{Q}(T_i, T_j) = \min_{g \in V_4} d_\Phi(\kappa_i, g \cdot \kappa_j)$ | `distance.py:quotient_distance()`       |
-| 尺度参数   | $\ell = \operatorname{median}\{d_\mathbb{Q}(T_i, T_j) > 0\}$                   | `distance.py:compute_scale_parameter()` |
+| 尺度参数   | $\ell = \text{median}\{d_\mathbb{Q}(T_i, T_j) > 0\}$                   | `distance.py:compute_scale_parameter()` |
 | 主题相似度 | $S_m(T_i, T_j) = \exp(-d_\mathbb{Q}(T_i, T_j) / \ell)$                         | `distance.py:theme_similarity()`        |
 
 ### Phase 7: 主题网络
@@ -284,7 +284,7 @@ bien_project/
 
 | 公式         | LaTeX                                                                                     | 代码位置                                      |
 | ------------ | ----------------------------------------------------------------------------------------- | --------------------------------------------- |
-| 时间尺度     | $\tau_{\mathfrak{D}} = \operatorname{median}\{d_q\} + \operatorname{median}\{g_q > 0\}$ | `dynamics.py:compute_temporal_constants()`  |
+| 时间尺度     | $\tau_{\mathfrak{D}} = \text{median}\{d_q\} + \text{median}\{g_q > 0\}$ | `dynamics.py:compute_temporal_constants()`  |
 | 记忆衰减核   | $K_m(\Delta t) = 2^{-\Delta t / \tau_{\mathfrak{D}}}$                                   | `dynamics.py:memory_activation_single()`    |
 | 主题激活     | $A_i(t) = 1 - \prod_{\mathfrak{o}_q \in T_i}(1 - a_q(t))$                               | `dynamics.py:memory_activation_type()`      |
 | 动态断裂势能 | $B_{dyn}(T_i, t_c) = A_i(t_c) \sum_j w_{ij} A_j(t_c)$                                   | `dynamics.py:dynamic_breakage()`            |
